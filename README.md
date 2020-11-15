@@ -16,3 +16,7 @@
 „pixelartm“ https://opengameart.org/content/pirate-1 
 
 „Buch“ https://opengameart.org/content/orthographic-outdoor-tiles
+
+### Music
+
+Kevin MacLeod ~ Pippin the Hunchback. (incompetech.com) Licensed under Creative Commons: By Attribution 3.0 License. http://creativecommons.org/licenses/by/3.0 https://creativecommons.org/licenses/by/3.0/legalcode
