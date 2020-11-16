@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Ocean
+  - Island
+  - Interactive
+  - Character
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
   - name: Island
     uniqueID: 697430581
     locked: 0
-  - name: pirate
+  - name: Interactive
+    uniqueID: 3140530259
+    locked: 0
+  - name: Pirate
     uniqueID: 2880058127
     locked: 0
