@@ -53,3 +53,6 @@ TagManager:
   - name: Pirate
     uniqueID: 2880058127
     locked: 0
+  - name: GameUI
+    uniqueID: 4158613309
+    locked: 0
