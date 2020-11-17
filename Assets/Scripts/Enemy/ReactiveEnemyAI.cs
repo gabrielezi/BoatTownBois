@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemy
 {
@@ -31,6 +33,7 @@ namespace Enemy
             _animatorMoving = Animator.StringToHash("moving");
             _animatorAttacking = Animator.StringToHash("attacking");
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            _spriteRenderer.sortingOrder = Random.Range(0, int.MaxValue);
             _animator = gameObject.GetComponent<Animator>();
         }
 
