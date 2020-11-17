@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using IslandDefenceBattle;
+using UnityEngine;
 
 namespace GameTime
 {
@@ -19,6 +21,8 @@ namespace GameTime
         private GameTime _gameTime;
         private int _uiUpdateDelayTimer = 0;
         private int _minuteAdditionDelayTimer = 0;
+
+        private TimedEventManager _timedEventManager;
 
         private readonly float[] _lightIntensitiesByHour =
         {
@@ -51,6 +55,7 @@ namespace GameTime
         private void Start()
         {
             _gameUIManager = FindObjectOfType<GameUIManager>();
+            _timedEventManager = FindObjectOfType<TimedEventManager>();
             _gameTime = new GameTime();
             _gameTime.AddHours(startHours);
         }
@@ -63,6 +68,7 @@ namespace GameTime
 
         private void ChangeTime()
         {
+            _timedEventManager.ActivateTimedEvents(_gameTime);
             _minuteAdditionDelayTimer++;
             if (_minuteAdditionDelayTimer >= minuteAdditionSpeedInFixedFrames)
             {
