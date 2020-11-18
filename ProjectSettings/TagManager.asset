@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Medis
+  tags: [Medis]
   layers:
   - Default
   - TransparentFX
@@ -18,7 +17,7 @@ TagManager:
   - Island
   - Interactive
   - Character
-  - 
+  - Ship
   - 
   - 
   - 
@@ -51,8 +50,14 @@ TagManager:
   - name: Interactive
     uniqueID: 3140530259
     locked: 0
+  - name: Ship
+    uniqueID: 2199385351
+    locked: 0
   - name: Pirate
     uniqueID: 2880058127
+    locked: 0
+  - name: Enemy
+    uniqueID: 945182587
     locked: 0
   - name: GameUI
     uniqueID: 4158613309
