@@ -6,7 +6,6 @@ public class PlayerBuild : MonoBehaviour
 {
     [SerializeField]
     private GameObject _building;
-    // Start is called before the first frame update
 
     private bool _isBuilding = false;
     private const float defaultBuildTime = 3; 
@@ -21,14 +20,23 @@ public class PlayerBuild : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown("b") && !_isBuilding)
         {
-            SoundManager.Instance.PlaySound("Build");
-            //Instantiate(_slider, _nextBuildPosition, Quaternion.identity);
-            //todo: use resources
-            _isBuilding = true;
-            _nextBuildPosition = transform.position;
+            var wood = ResourceManager.Instance.GetResource(ResourceEnum.Wood);
+            var stone = ResourceManager.Instance.GetResource(ResourceEnum.Stone);
+            if (wood < 100 || stone < 50)
+            {
+                //TODO: print message to player;
+                print("Not enough resources!");
+            } 
+            else
+            {
+                _nextBuildPosition = transform.position;
+                SoundManager.Instance.PlaySound("Build");
+                ResourceManager.Instance.AddResource(ResourceEnum.Wood, -100);
+                ResourceManager.Instance.AddResource(ResourceEnum.Stone, -50);
+                _isBuilding = true;
+            }
         }
         if (_isBuilding)
         {
