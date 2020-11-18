@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7543954871966217839}
   - component: {fileID: 7543954871966217832}
-  - component: {fileID: 7543954871966217833}
   m_Layer: 10
   m_Name: medis
   m_TagString: Medis
@@ -82,18 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7543954871966217833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7543954871966217838}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022932059cfdb4144b04b2de59366d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7543954872037555641
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7543954872037555642}
   - component: {fileID: 7543954872037555643}
-  - component: {fileID: 7543954872037555636}
   - component: {fileID: 7728676258697873842}
+  - component: {fileID: 8819269080197511152}
   m_Layer: 0
   m_Name: Medis
   m_TagString: Untagged
@@ -179,20 +166,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7543954872037555636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7543954872037555641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b799bbb12b2834c82257cfb9edf567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 7543954873665221472}
-  tree: {fileID: 7543954871966217838}
 --- !u!61 &7728676258697873842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,6 +192,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7120986, y: 0.82788014}
   m_EdgeRadius: 0
+--- !u!114 &8819269080197511152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543954872037555641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b799bbb12b2834c82257cfb9edf567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &7543954872396771243
 GameObject:
   m_ObjectHideFlags: 0
