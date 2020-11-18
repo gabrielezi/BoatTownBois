@@ -42,8 +42,11 @@ public class Gathering : MonoBehaviour
         {
             if (gameObject.name == "Medis")
             {
-                Text text = GameObject.Find("Wood_Count_Text").GetComponent<Text>();
-                text.text = (int.Parse(text.text) + 100).ToString();
+                ResourceManager.Instance.AddResource(ResourceEnum.Wood, 100);
+            } 
+            else if (gameObject.name == "Akmuo")
+            {
+                ResourceManager.Instance.AddResource(ResourceEnum.Stone, 50);
             }
             Destroy(gameObject);
         }
