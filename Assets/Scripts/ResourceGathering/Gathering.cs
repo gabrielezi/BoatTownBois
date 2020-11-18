@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ public class Gathering : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-            if (hit.collider != null && hit.collider.gameObject.name == gameObject.name )
+            if (hit.collider != null && hit.collider.gameObject.name == gameObject.name)
             {
                 slider.gameObject.SetActive(true);
                 InvokeRepeating(nameof(DoSomething), 1f, 1f);
@@ -38,8 +39,13 @@ public class Gathering : MonoBehaviour
         slider.value = (float)(k * 0.2);
 
         if (k == 5)
+        {
+            if (gameObject.name == "Medis")
+            {
+                Text text = GameObject.Find("Wood_Count_Text").GetComponent<Text>();
+                text.text = (int.Parse(text.text) + 100).ToString();
+            }
             Destroy(gameObject);
-
-        //add to resources
+        }
     }
 }
