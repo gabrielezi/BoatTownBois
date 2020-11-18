@@ -15,7 +15,8 @@ namespace Player
 
         private int _animatorMoving;
         private int _animatorAttacking;
-    
+        
+
         private void Start()
         {
             _animatorMoving = Animator.StringToHash("moving");
