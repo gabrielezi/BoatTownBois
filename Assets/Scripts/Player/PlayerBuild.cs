@@ -6,8 +6,6 @@ public class PlayerBuild : MonoBehaviour
 {
     [SerializeField]
     private GameObject _building;
-    [SerializeField]
-    private GameObject _slider;
     // Start is called before the first frame update
 
     private bool _isBuilding = false;
