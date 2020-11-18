@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             _targetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
             _targetPosition.z = transform.position.z;
