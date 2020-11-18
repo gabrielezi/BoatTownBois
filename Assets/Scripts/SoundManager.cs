@@ -3,17 +3,27 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager Instance;
+    
     public Sound[] sounds;
     public bool playSounds = true;
     
     private Dictionary<string, AudioSource> _audioSources;
-    private Dictionary<string, AudioSource> _playingAudioSources;
     private Dictionary<string, float> _soundReplayDelays;
     private Dictionary<string, float> _soundLastPlayedTimers;
-    private string _playingBackgroundSoundName;
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+            
         _audioSources = new Dictionary<string, AudioSource>();
         _soundReplayDelays = new Dictionary<string, float>();
         _soundLastPlayedTimers = new Dictionary<string, float>();
@@ -37,20 +47,21 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBackgroundSound(string soundName)
     {
-        if (_playingBackgroundSoundName != null)
-        {
-            StopSound(soundName);
-        }
-        _playingBackgroundSoundName = soundName;
-        
+        StopAllSounds();
         PlaySound(soundName);
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (var audioSource in _audioSources)
+        {
+            audioSource.Value.Stop();
+        }
     }
 
     public void StopSound(string soundName)
     {
         if (!_audioSources.TryGetValue(soundName, out var sound)) {
-            Debug.LogWarning("Sound " + soundName + " not found.");
-            
             return;
         }
         sound.Stop();
