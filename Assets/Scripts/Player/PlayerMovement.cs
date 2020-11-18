@@ -6,8 +6,6 @@ namespace Player
     {
         [SerializeField]
         private float speed = 0.05f;
-        [SerializeField]
-        private GameObject _building;
 
         private Vector3 _targetPosition;
         private bool _moving;
@@ -40,12 +38,6 @@ namespace Player
             
                 _moving = true;
                 _animator.SetBool(_animatorMoving, true);
-            }
-
-            if (Input.GetKeyDown("b"))
-            {
-                //todo: use resources
-                Instantiate(_building, transform.position, Quaternion.identity);
             }
         }
 
