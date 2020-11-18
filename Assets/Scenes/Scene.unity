@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 590983362}
   - component: {fileID: 590983364}
   - component: {fileID: 590983366}
+  - component: {fileID: 590983367}
   - component: {fileID: 590983365}
   m_Layer: 11
   m_Name: Player_Stripes
@@ -826,6 +827,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTimer: 50
+--- !u!114 &590983367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590983361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71725674681193e4589bd9ddbcc0c564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _building: {fileID: 1536962762557276515, guid: d106ae64d8ba0894b94323dbb933a85b,
+    type: 3}
 --- !u!1 &595633092
 GameObject:
   m_ObjectHideFlags: 0
@@ -5293,6 +5308,11 @@ MonoBehaviour:
   - name: Explosion
     loop: 0
     clip: {fileID: 8300000, guid: ab2172218873f664b8943bc996980c43, type: 3}
+    replayDelay: 1
+    volume: 0.285
+  - name: Build
+    loop: 0
+    clip: {fileID: 8300000, guid: b54fad7a96beaee409ea8a1acc7371be, type: 3}
     replayDelay: 1
     volume: 0.285
   playSounds: 1
