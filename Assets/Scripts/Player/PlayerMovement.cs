@@ -39,6 +39,10 @@ namespace Player
                 _moving = true;
                 _animator.SetBool(_animatorMoving, true);
             }
+            if (Input.GetKey("escape"))
+            {
+                Application.Quit();
+            }
         }
 
         private void FixedUpdate()
