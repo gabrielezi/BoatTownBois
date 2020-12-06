@@ -5,7 +5,7 @@ public class CameraZoom : MonoBehaviour
     [SerializeField]
     private float minZoom = 2f;
     [SerializeField]
-    private float maxZoom = 8f;
+    private float maxZoom = 7f;
     [SerializeField]
     private float zoomSpeed = 8f;
     [SerializeField]

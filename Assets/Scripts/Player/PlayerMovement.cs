@@ -14,13 +14,10 @@ namespace Player
         private Animator _animator;
 
         private int _animatorMoving;
-        private int _animatorAttacking;
-        
 
         private void Start()
         {
             _animatorMoving = Animator.StringToHash("moving");
-            _animatorAttacking = Animator.StringToHash("attacking");
             _camera = Camera.main;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
@@ -28,9 +25,13 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            if (
+                (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+                && CharacterSelect.Instance.IsCharacterSelected(gameObject)
+                )
             {
                 _targetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+                _targetPosition += (Random.insideUnitSphere * 0.5f);
                 _targetPosition.z = transform.position.z;
 
                 var direction = _targetPosition - transform.position;

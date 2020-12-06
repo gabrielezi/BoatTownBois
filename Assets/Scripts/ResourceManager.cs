@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,9 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     private Dictionary<ResourceEnum, int> _resources;
+    private Text _woodCountText;
+    private Text _stoneCountText;
+    private Text _coinCountText;
 
     private void Awake()
     {
@@ -22,6 +24,14 @@ public class ResourceManager : MonoBehaviour
         _resources = new Dictionary<ResourceEnum, int>();
         _resources.Add(ResourceEnum.Wood, 0);
         _resources.Add(ResourceEnum.Stone, 0);
+        _resources.Add(ResourceEnum.Coin, 0);
+    }
+
+    private void Start()
+    {
+        _woodCountText = GameObject.Find("Wood_Count_Text").GetComponent<Text>();
+        _stoneCountText = GameObject.Find("Stone_Count_Text").GetComponent<Text>();
+        _coinCountText = GameObject.Find("Coin_Count_Text").GetComponent<Text>();
     }
 
     public void AddResource(ResourceEnum resourceType, int amount)
@@ -36,17 +46,15 @@ public class ResourceManager : MonoBehaviour
 
     public void UpdateResourceDisplay()
     {
-        Text textWood = GameObject.Find("Wood_Count_Text").GetComponent<Text>();
-        textWood.text = (_resources[ResourceEnum.Wood]).ToString();
-
-        Text textStone = GameObject.Find("Stone_Count_Text").GetComponent<Text>();
-        textStone.text = (_resources[ResourceEnum.Stone]).ToString();
+        _woodCountText.text = _resources[ResourceEnum.Wood].ToString();
+        _stoneCountText.text = _resources[ResourceEnum.Stone].ToString();
+        _coinCountText.text = _resources[ResourceEnum.Coin].ToString();
     }
 }
-
 
 public enum ResourceEnum
 {
     Wood,
-    Stone
+    Stone,
+    Coin,
 }

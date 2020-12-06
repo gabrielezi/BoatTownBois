@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Medis
+  - Coin
+  - Wood
+  - Player Character
   layers:
   - Default
   - TransparentFX
@@ -19,8 +22,8 @@ TagManager:
   - Interactive
   - Character
   - Ship
-  - 
-  - 
+  - Enemy
+  - Collectable
   - 
   - 
   - 
@@ -56,6 +59,12 @@ TagManager:
     locked: 0
   - name: Pirate
     uniqueID: 2880058127
+    locked: 0
+  - name: Loot
+    uniqueID: 3411226503
+    locked: 0
+  - name: CharacterUI
+    uniqueID: 3919279873
     locked: 0
   - name: GameUI
     uniqueID: 4158613309

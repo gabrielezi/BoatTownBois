@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Generic;
+using UnityEngine;
 
 namespace IslandDefenceBattle
 {
@@ -10,11 +11,11 @@ namespace IslandDefenceBattle
         public float speed = 0.02f;
         private bool _spawnedCrew;
 
-        private EnemySpawner _enemySpawner;
+        private Spawner _spawner;
 
         private void Start()
         {
-            _enemySpawner = FindObjectOfType<EnemySpawner>();
+            _spawner = FindObjectOfType<Spawner>();
         }
 
         private void FixedUpdate()
@@ -37,7 +38,7 @@ namespace IslandDefenceBattle
         {
             foreach (var crewMember in crew)
             {
-                _enemySpawner.Spawn(crewMember, position);
+                _spawner.Spawn(crewMember, position);
             }
         }
     }
