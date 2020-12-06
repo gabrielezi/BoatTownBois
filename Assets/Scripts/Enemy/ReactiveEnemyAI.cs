@@ -38,10 +38,10 @@ namespace Enemy
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             _animator = gameObject.GetComponent<Animator>();
 
-            _target = FindClosestPlayerCharacter();
+            InvokeRepeating(nameof(FindClosestPlayerCharacter), 0, 3f);
         }
 
-        private Player.Player FindClosestPlayerCharacter()
+        private void FindClosestPlayerCharacter()
         {
             Player.Player[] characters = FindObjectsOfType<Player.Player>();
 
@@ -58,7 +58,7 @@ namespace Enemy
                 }
             }
 
-            return closestPlayerCharacter;
+            _target = closestPlayerCharacter;
         }
         
         private void FixedUpdate()
@@ -66,7 +66,6 @@ namespace Enemy
             if (_target == null)
             {
                 _animator.SetBool(_animatorMoving, false);
-                _target = FindClosestPlayerCharacter();
                 
                 return;
             }
