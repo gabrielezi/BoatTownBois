@@ -4,9 +4,8 @@ namespace IslandDefenceBattle
 {
     public class IslandDefenceBattleManager : MonoBehaviour
     {
-        [SerializeField]
-        private Ship[] ships;
-        
+        [SerializeField] private Ship[] ships;
+
         public void BattleStart()
         {
             SoundManager.Instance.PlayBackgroundSound("Island Defence Battle");

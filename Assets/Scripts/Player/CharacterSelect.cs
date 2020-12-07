@@ -8,7 +8,7 @@ namespace Player
         public static CharacterSelect Instance;
 
         private Dictionary<GameObject, SpriteRenderer> _selectedCharacters;
-        
+
         private void Awake()
         {
             if (Instance == null)
@@ -84,6 +84,7 @@ namespace Player
             {
                 return;
             }
+
             var sr = character.GetComponent<SpriteRenderer>();
             sr.enabled = false;
             _selectedCharacters.Add(character, sr);

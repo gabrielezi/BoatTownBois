@@ -5,12 +5,9 @@ namespace Fight.Damage
 {
     public class DamageableAnimated : MonoBehaviour, IDamageable
     {
-        [SerializeField]
-        private int health;
-        [SerializeField]
-        private string animatorHitTriggerName = "hit";
-        [SerializeField]
-        private string animatorIsDownName = "isDown";
+        [SerializeField] private int health;
+        [SerializeField] private string animatorHitTriggerName = "hit";
+        [SerializeField] private string animatorIsDownName = "isDown";
 
         private Animator _animator;
         private int _animatorHitTrigger;
@@ -19,7 +16,7 @@ namespace Fight.Damage
 
         private IDestroy _destroy;
         private HealthBarManager _hpBarManager;
-        
+
         private void Start()
         {
             _animator = gameObject.GetComponent<Animator>();
@@ -34,7 +31,7 @@ namespace Fight.Damage
         {
             health -= damage;
             _hpBarManager.UpdateHealthBar(_maxHealth, health);
-            
+
             if (health > 0)
             {
                 _animator.SetTrigger(_animatorHitTrigger);

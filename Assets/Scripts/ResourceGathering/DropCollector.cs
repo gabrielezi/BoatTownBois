@@ -11,7 +11,8 @@ namespace ResourceGathering
                 Destroy(other.gameObject);
                 ResourceManager.Instance.AddResource(ResourceEnum.Coin, 1);
                 SoundManager.Instance.PlaySound("Coin");
-            } else if (other.gameObject.CompareTag("Wood"))
+            }
+            else if (other.gameObject.CompareTag("Wood"))
             {
                 Destroy(other.gameObject);
                 ResourceManager.Instance.AddResource(ResourceEnum.Wood, 20);

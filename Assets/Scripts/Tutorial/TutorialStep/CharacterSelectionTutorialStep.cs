@@ -5,11 +5,9 @@ namespace Tutorial.TutorialStep
 {
     public class CharacterSelectionTutorialStep : MonoBehaviour, ITutorialStep
     {
-        [SerializeField]
-        private GameObject otherPirate;
-        [SerializeField]
-        private GameObject startingPirate;
-        
+        [SerializeField] private GameObject otherPirate;
+        [SerializeField] private GameObject startingPirate;
+
         private bool _textShown;
         private bool _lockedFunctionality;
         private bool _selectionSwitchDone;
@@ -25,13 +23,14 @@ namespace Tutorial.TutorialStep
                 CharacterSelect.Instance.ToggleCharacterSelection(otherPirate);
             }
         }
-        
+
         public bool Process()
         {
             if (_lockedFunctionality)
             {
                 Unlock();
             }
+
             if (!_textShown)
             {
                 _textTransitionAnimation.Animate(
@@ -40,6 +39,7 @@ namespace Tutorial.TutorialStep
                 otherPirate.SetActive(true);
                 _textShown = true;
             }
+
             if (!_selectionSwitchDone && CharacterSelect.Instance.IsCharacterSelected(otherPirate))
             {
                 _textTransitionAnimation.Animate(

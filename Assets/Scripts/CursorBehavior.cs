@@ -7,7 +7,9 @@ public class CursorBehavior : MonoBehaviour
     Vector2 mouse;
     int w = 32;
     int h = 32;
+
     public Texture2D cursor1;
+
     // Use this for initialization
     void Start()
     {
@@ -19,10 +21,12 @@ public class CursorBehavior : MonoBehaviour
     {
         mouse = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
     }
+
     public void OnMouseOver()
     {
         Cursor.SetCursor(cursor1, Vector2.zero, CursorMode.Auto);
     }
+
     public void OnMouseExit()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);

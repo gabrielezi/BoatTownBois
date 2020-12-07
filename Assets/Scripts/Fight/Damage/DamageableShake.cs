@@ -6,12 +6,9 @@ namespace Fight.Damage
 {
     public class DamageableShake : MonoBehaviour, IDamageable
     {
-        [SerializeField]
-        private int health;
-        [SerializeField]
-        private float timeToShake = 0.3f;
-        [SerializeField]
-        private float shakingIntensity = 0.05f;
+        [SerializeField] private int health;
+        [SerializeField] private float timeToShake = 0.3f;
+        [SerializeField] private float shakingIntensity = 0.05f;
 
         private IDestroy _destroy;
         private HealthBarManager _hpBarManager;
@@ -19,7 +16,7 @@ namespace Fight.Damage
         private Vector3 _randomPos;
         private Vector3 _startPos;
         private int _maxHealth;
-        
+
         private void Start()
         {
             _destroy = gameObject.GetComponent<IDestroy>();
@@ -32,14 +29,14 @@ namespace Fight.Damage
             health -= damage;
             _hpBarManager.UpdateHealthBar(_maxHealth, health);
             StartCoroutine(Shake());
-            
+
             if (health <= 0)
             {
                 GetComponent<Collider2D>().enabled = false;
                 _destroy.DestroyObject();
             }
         }
-        
+
         private IEnumerator Shake()
         {
             _timer = 0f;
@@ -49,11 +46,12 @@ namespace Fight.Damage
             while (_timer < timeToShake)
             {
                 _timer += Time.deltaTime;
- 
+
                 transform.position += (Random.insideUnitSphere * shakingIntensity);
 
                 yield return waitForFixedUpdate;
             }
+
             transform.position = _startPos;
         }
     }

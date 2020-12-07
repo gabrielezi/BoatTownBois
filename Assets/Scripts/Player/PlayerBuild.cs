@@ -4,11 +4,10 @@ namespace Player
 {
     public class PlayerBuild : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject building;
+        [SerializeField] private GameObject building;
 
         private bool _isBuilding;
-        private const float DefaultBuildTime = 3; 
+        private const float DefaultBuildTime = 3;
         private float _buildTimeRemaining = DefaultBuildTime;
         private Vector3 _buildingPosition;
 
@@ -22,7 +21,7 @@ namespace Player
                 {
                     //TODO: print message to player;
                     print("Not enough resources!");
-                } 
+                }
                 else
                 {
                     _buildingPosition = transform.position;
@@ -33,12 +32,13 @@ namespace Player
                     _isBuilding = true;
                 }
             }
+
             if (_isBuilding)
             {
-                if(_buildTimeRemaining > 0)
+                if (_buildTimeRemaining > 0)
                 {
                     _buildTimeRemaining -= Time.deltaTime;
-                } 
+                }
                 else
                 {
                     Instantiate(building, _buildingPosition, Quaternion.identity);

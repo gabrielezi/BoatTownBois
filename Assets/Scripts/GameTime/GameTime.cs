@@ -6,17 +6,20 @@
         public int Minutes;
         public int Days;
 
-        public GameTime() {
+        public GameTime()
+        {
             Hours = 0;
             Minutes = 0;
             Days = 0;
         }
 
-        public void AddHours(int hours) {
+        public void AddHours(int hours)
+        {
             CorrectHours(hours);
         }
 
-        public void AddMinutes(int minutes) {
+        public void AddMinutes(int minutes)
+        {
             Minutes += minutes;
 
             if (Minutes >= 60)
@@ -27,11 +30,13 @@
             }
         }
 
-        public int GetInMinutes() {
+        public int GetInMinutes()
+        {
             return Days * 24 * 60 + Hours * 60 + Minutes;
         }
 
-        private void CorrectHours(int hours) {
+        private void CorrectHours(int hours)
+        {
             Hours += hours;
 
             if (Hours >= 24)

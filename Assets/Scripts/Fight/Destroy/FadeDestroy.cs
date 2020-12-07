@@ -18,10 +18,10 @@ namespace Fight.Destroy
         {
             StartCoroutine(Fade(gameObject.GetComponent<SpriteRenderer>()));
         }
-        
-        IEnumerator Fade(SpriteRenderer spriteRenderer) 
+
+        IEnumerator Fade(SpriteRenderer spriteRenderer)
         {
-            for (float ft = 1f; ft >= 0; ft -= 0.01f) 
+            for (float ft = 1f; ft >= 0; ft -= 0.01f)
             {
                 Color color = spriteRenderer.color;
                 color.a = ft;
@@ -33,6 +33,7 @@ namespace Fight.Destroy
             {
                 _eventDispatcher.Dispatch(new GameObjectEvent(gameObject, EventType.OnDestroy));
             }
+
             Destroy(gameObject);
         }
     }

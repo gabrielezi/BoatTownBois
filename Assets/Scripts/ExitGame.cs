@@ -7,7 +7,6 @@ public class ExitGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -21,10 +20,9 @@ public class ExitGame : MonoBehaviour
             {
                 Application.Quit();
             }
-
         }
-       
     }
+
     public void Exit()
     {
         Application.Quit();

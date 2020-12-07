@@ -13,19 +13,20 @@ namespace Tutorial.TutorialStep
         {
             _textTransitionAnimation = gameObject.GetComponent<TextTransitionAnimation>();
         }
-        
+
         public bool Process()
         {
             if (_lockedFunctionality)
             {
                 Unlock();
             }
+
             if (!_textShown)
             {
                 _textTransitionAnimation.Animate("Attack by pressing F key.");
                 _textShown = true;
             }
-            
+
             return Input.GetKeyDown(KeyCode.F);
         }
 

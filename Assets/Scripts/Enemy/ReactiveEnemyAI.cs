@@ -5,18 +5,12 @@ namespace Enemy
 {
     public class ReactiveEnemyAI : MonoBehaviour
     {
-        [SerializeField]
-        private float detectionRange = 5f;
-        [SerializeField]
-        private float chaseSpeed = 0.02f;
-        [SerializeField]
-        private float patrolSpeed = 0.02f;
-        [SerializeField]
-        private int patrolRange = 100;
-        [SerializeField]
-        private int idleTime = 100;
-        [SerializeField]
-        private int attackDamage = 5;
+        [SerializeField] private float detectionRange = 5f;
+        [SerializeField] private float chaseSpeed = 0.02f;
+        [SerializeField] private float patrolSpeed = 0.02f;
+        [SerializeField] private int patrolRange = 100;
+        [SerializeField] private int idleTime = 100;
+        [SerializeField] private int attackDamage = 5;
 
         private bool _chaseTarget;
         private int _patrolCount;
@@ -60,20 +54,21 @@ namespace Enemy
 
             _target = closestPlayerCharacter;
         }
-        
+
         private void FixedUpdate()
         {
             if (_target == null)
             {
                 _animator.SetBool(_animatorMoving, false);
-                
+
                 return;
             }
+
             var position = transform.position;
             var targetPosition = _target.transform.position;
 
             var direction = targetPosition - position;
-            
+
             var distance = Vector2.Distance(position, targetPosition);
             _chaseTarget = distance < detectionRange;
 
@@ -114,13 +109,14 @@ namespace Enemy
                     patrolSpeed *= -1;
                     _patrolCount = 0;
                     _idleCount = idleTime;
-
                 }
+
                 position += transform.right * patrolSpeed;
                 _patrolCount++;
                 _animator.SetBool(_animatorMoving, true);
                 SoundManager.Instance.PlaySound("Green Run");
             }
+
             transform.position = position;
         }
     }

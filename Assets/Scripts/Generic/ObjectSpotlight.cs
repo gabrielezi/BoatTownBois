@@ -6,10 +6,8 @@ namespace Generic
 {
     public class ObjectSpotlight : MonoBehaviour
     {
-        [SerializeField]
-        private Light mainLight;
-        [SerializeField]
-        private float camMovementSpeed = 3f;
+        [SerializeField] private Light mainLight;
+        [SerializeField] private float camMovementSpeed = 3f;
 
         private Light _spotlightLight;
         private Camera _mainCamera;
@@ -24,7 +22,7 @@ namespace Generic
         {
             StartCoroutine(Spotlight(objectToSpotlight, duration));
         }
-        
+
         private IEnumerator Spotlight(GameObject objectToSpotlight, float duration)
         {
             var startPosition = _mainCamera.transform.position;
@@ -40,14 +38,15 @@ namespace Generic
 
                 yield return null;
             }
+
             mainLight.enabled = false;
             _spotlightLight.enabled = true;
-            
+
             yield return new WaitForSeconds(duration);
-            
+
             mainLight.enabled = true;
             _spotlightLight.enabled = false;
-            
+
             while (_mainCamera.transform.position != startPosition)
             {
                 _mainCamera.transform.position = Vector3.MoveTowards(
@@ -55,7 +54,7 @@ namespace Generic
                     startPosition,
                     camMovementSpeed * Time.deltaTime
                 );
-                
+
                 yield return null;
             }
         }

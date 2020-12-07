@@ -7,11 +7,9 @@ namespace Tutorial.TutorialStep
 {
     public class DestroyShipTutorialStep : MonoBehaviour, ITutorialStep
     {
-        [SerializeField]
-        private OnDestroyDispatcher onDestroyDispatcher;
-        [SerializeField]
-        private GameObject shipToDestroy;
-        
+        [SerializeField] private OnDestroyDispatcher onDestroyDispatcher;
+        [SerializeField] private GameObject shipToDestroy;
+
         private bool _textShown;
         private bool _spotlight;
         private bool _shipDestroyed;
@@ -26,7 +24,7 @@ namespace Tutorial.TutorialStep
             onDestroyDispatcher.OnObjectDestroyed += OnGameObjectDestroyed;
             _objectSpotlight = GameObject.Find("Point_Light").GetComponent<ObjectSpotlight>();
         }
-        
+
         private void OnGameObjectDestroyed(GameObject destroyedObject)
         {
             _shipDestroyed = destroyedObject.CompareTag("Ship");

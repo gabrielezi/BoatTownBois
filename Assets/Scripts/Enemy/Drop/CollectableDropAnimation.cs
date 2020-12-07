@@ -8,11 +8,11 @@ namespace Enemy.Drop
         private bool _animationFinished;
 
         private Vector3 _startPos;
-        
+
         private void Start()
         {
             _startPos = transform.position;
-            
+
             StartCoroutine(Animate());
         }
 
@@ -21,7 +21,7 @@ namespace Enemy.Drop
             var targetPosition = _startPos;
             targetPosition.y += Random.Range(0.3f, 1.2f);
             var speed = Random.Range(1.5f, 2.5f);
-            
+
             while (!_animationFinished)
             {
                 AnimateStep(targetPosition, speed);

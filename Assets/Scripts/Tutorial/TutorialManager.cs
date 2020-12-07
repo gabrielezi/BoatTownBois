@@ -17,6 +17,7 @@ namespace Tutorial
             {
                 tutorialStep.LockFunctionality();
             }
+
             _maxStepIndex = _tutorialSteps.Length - 1;
         }
 

@@ -9,9 +9,8 @@ namespace Enemy.Drop
     public class DropLootListener : MonoBehaviour, IEventListener
     {
         public EventType Type { get; }
-        
-        [SerializeField]
-        private LootItem[] lootItems;
+
+        [SerializeField] private LootItem[] lootItems;
         private Spawner _spawner;
 
         public DropLootListener()
@@ -28,7 +27,7 @@ namespace Enemy.Drop
         {
             var position = gameObject.transform.position;
             foreach (var lootItem in lootItems)
-            { 
+            {
                 var dropAmount = Random.Range(lootItem.minAmount, lootItem.maxAmount);
                 for (int i = 0; i < dropAmount; i++)
                 {

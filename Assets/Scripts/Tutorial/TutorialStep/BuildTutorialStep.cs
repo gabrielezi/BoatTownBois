@@ -15,13 +15,14 @@ namespace Tutorial.TutorialStep
         {
             _textTransitionAnimation = gameObject.GetComponent<TextTransitionAnimation>();
         }
-        
+
         public bool Process()
         {
             if (_lockedFunctionality)
             {
                 Unlock();
             }
+
             if (!_textShown)
             {
                 _textTransitionAnimation.Animate(
@@ -29,6 +30,7 @@ namespace Tutorial.TutorialStep
                 );
                 _textShown = true;
             }
+
             if (!_building && Input.GetKeyDown(KeyCode.B))
             {
                 _building = true;
@@ -38,7 +40,7 @@ namespace Tutorial.TutorialStep
             {
                 return true;
             }
-            
+
             return false;
         }
 

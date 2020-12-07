@@ -7,11 +7,9 @@ namespace Tutorial.TutorialStep
 {
     public class GatheringTutorialStep : MonoBehaviour, ITutorialStep
     {
-        [SerializeField]
-        private OnDestroyDispatcher onDestroyDispatcher;
-        [SerializeField]
-        private GameObject resourceToGather;
-        
+        [SerializeField] private OnDestroyDispatcher onDestroyDispatcher;
+        [SerializeField] private GameObject resourceToGather;
+
         private bool _textShown;
         private bool _lockedFunctionality;
         private bool _resourceGathered;
@@ -30,13 +28,14 @@ namespace Tutorial.TutorialStep
         {
             _resourceGathered = destroyedObject.CompareTag("Stone");
         }
-        
+
         public bool Process()
         {
             if (_lockedFunctionality)
             {
                 Unlock();
             }
+
             if (!_spotlight)
             {
                 _objectSpotlight.SpotlightGameObject(resourceToGather, 2f);
@@ -47,7 +46,7 @@ namespace Tutorial.TutorialStep
                 _textTransitionAnimation.Animate("See this stone? Try to gather it using your right mouse button.");
                 _textShown = true;
             }
-            
+
             return _resourceGathered;
         }
 
