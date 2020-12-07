@@ -33,10 +33,11 @@ namespace Enemy
                 _animator.SetBool(_animatorIsDown, true);
                 GetComponent<Collider2D>().enabled = false;
                 MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
-                foreach(var script in scripts)
+                foreach (var script in scripts)
                 {
                     script.enabled = false;
                 }
+
                 Destroy(gameObject);
             }
         }

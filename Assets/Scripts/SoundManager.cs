@@ -4,10 +4,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    
+
     public Sound[] sounds;
     public bool playSounds = true;
-    
+
     private Dictionary<string, AudioSource> _audioSources;
     private Dictionary<string, float> _soundReplayDelays;
     private Dictionary<string, float> _soundLastPlayedTimers;
@@ -22,12 +22,13 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
-            
+
         _audioSources = new Dictionary<string, AudioSource>();
         _soundReplayDelays = new Dictionary<string, float>();
         _soundLastPlayedTimers = new Dictionary<string, float>();
-        
+
         foreach (var sound in sounds)
         {
             var audioSource = gameObject.AddComponent<AudioSource>();
@@ -61,9 +62,11 @@ public class SoundManager : MonoBehaviour
 
     public void StopSound(string soundName)
     {
-        if (!_audioSources.TryGetValue(soundName, out var sound)) {
+        if (!_audioSources.TryGetValue(soundName, out var sound))
+        {
             return;
         }
+
         sound.Stop();
     }
 
@@ -73,10 +76,11 @@ public class SoundManager : MonoBehaviour
             !playSounds
             || !CanPlay(soundName)
             || !_audioSources.TryGetValue(soundName, out var sound)
-        ) {
+        )
+        {
             return;
         }
-        
+
         sound.Play();
         _soundLastPlayedTimers[soundName] = Time.time;
     }
@@ -86,7 +90,8 @@ public class SoundManager : MonoBehaviour
         if (
             !_soundLastPlayedTimers.TryGetValue(soundName, out var lastPlayed)
             || !_soundReplayDelays.TryGetValue(soundName, out var replayDelay)
-        ) {
+        )
+        {
             return true;
         }
 

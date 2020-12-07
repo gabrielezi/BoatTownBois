@@ -20,6 +20,7 @@ public class ResourceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
         _resources = new Dictionary<ResourceEnum, int>();
         _resources.Add(ResourceEnum.Wood, 0);
@@ -39,6 +40,7 @@ public class ResourceManager : MonoBehaviour
         _resources[resourceType] += amount;
         UpdateResourceDisplay();
     }
+
     public int GetResource(ResourceEnum resourceType)
     {
         return _resources[resourceType];

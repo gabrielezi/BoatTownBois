@@ -4,8 +4,7 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField]
-        private float speed = 0.05f;
+        [SerializeField] private float speed = 0.05f;
 
         private Vector3 _targetPosition;
         private bool _moving;
@@ -28,18 +27,23 @@ namespace Player
             if (
                 (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
                 && CharacterSelect.Instance.IsCharacterSelected(gameObject)
-                )
+            )
             {
                 _targetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-                _targetPosition += (Random.insideUnitSphere * 0.5f);
+                if (CharacterSelect.Instance.GetSelectedCharacterCount() > 1)
+                {
+                    _targetPosition += (Random.insideUnitSphere * 0.5f);
+                }
+
                 _targetPosition.z = transform.position.z;
 
                 var direction = _targetPosition - transform.position;
                 _spriteRenderer.flipX = direction.x < 0;
-            
+
                 _moving = true;
                 _animator.SetBool(_animatorMoving, true);
             }
+
             if (Input.GetKey("escape"))
             {
                 Application.Quit();

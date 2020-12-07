@@ -8,7 +8,7 @@ namespace Player
         public static CharacterSelect Instance;
 
         private Dictionary<GameObject, SpriteRenderer> _selectedCharacters;
-        
+
         private void Awake()
         {
             if (Instance == null)
@@ -19,7 +19,6 @@ namespace Player
             {
                 Destroy(gameObject);
             }
-            DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
@@ -63,6 +62,32 @@ namespace Player
             {
                 characterSelected.enabled = !characterSelected.enabled;
             }
+        }
+
+        public int GetSelectedCharacterCount()
+        {
+            int selectedCount = 0;
+            foreach (var alertSprite in _selectedCharacters.Values)
+            {
+                if (alertSprite.enabled)
+                {
+                    selectedCount++;
+                }
+            }
+
+            return selectedCount;
+        }
+
+        public void AddCharacter(GameObject character)
+        {
+            if (_selectedCharacters.ContainsKey(character))
+            {
+                return;
+            }
+
+            var sr = character.GetComponent<SpriteRenderer>();
+            sr.enabled = false;
+            _selectedCharacters.Add(character, sr);
         }
 
         public void RemoveCharacter(GameObject character)

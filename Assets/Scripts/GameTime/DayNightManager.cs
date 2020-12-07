@@ -6,16 +6,11 @@ namespace GameTime
 {
     public class DayNightManager : MonoBehaviour
     {
-        [SerializeField]
-        private int uiUpdateDelayTime = 10;
-        [SerializeField]
-        private int startHours = 6;
-        [SerializeField]
-        private int minutesToAdd = 1;
-        [SerializeField]
-        private int minuteAdditionSpeedInFixedFrames = 1;
-        [SerializeField]
-        private Light sceneLight;
+        [SerializeField] private int uiUpdateDelayTime = 10;
+        [SerializeField] private int startHours = 6;
+        [SerializeField] private int minutesToAdd = 1;
+        [SerializeField] private int minuteAdditionSpeedInFixedFrames = 1;
+        [SerializeField] private Light sceneLight;
 
         private GameUIManager _gameUIManager;
         private GameTime _gameTime;
@@ -59,7 +54,7 @@ namespace GameTime
             _gameTime = new GameTime();
             _gameTime.AddHours(startHours);
         }
-        
+
         private void FixedUpdate()
         {
             ChangeTime();
@@ -75,6 +70,7 @@ namespace GameTime
                 _minuteAdditionDelayTimer = 0;
                 _gameTime.AddMinutes(minutesToAdd);
             }
+
             _uiUpdateDelayTimer++;
             if (_uiUpdateDelayTimer >= uiUpdateDelayTime)
             {

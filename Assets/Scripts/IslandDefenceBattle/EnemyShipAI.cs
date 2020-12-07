@@ -6,7 +6,7 @@ namespace IslandDefenceBattle
     public class EnemyShipAI : MonoBehaviour
     {
         public GameObject[] crew;
-        
+
         public Vector3 endPosition = new Vector3(0f, 2.5f);
         public float speed = 0.02f;
         private bool _spawnedCrew;
@@ -27,7 +27,8 @@ namespace IslandDefenceBattle
                     endPosition,
                     speed
                 );
-            } else if (!_spawnedCrew)
+            }
+            else if (!_spawnedCrew)
             {
                 SpawnCrew(endPosition);
                 _spawnedCrew = true;

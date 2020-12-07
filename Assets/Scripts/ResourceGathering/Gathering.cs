@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
 
 public class Gathering : MonoBehaviour
@@ -30,24 +29,25 @@ public class Gathering : MonoBehaviour
                 slider.gameObject.SetActive(true);
                 InvokeRepeating(nameof(DoSomething), 1f, 1f);
             }
-
         }
     }
+
     private void DoSomething()
     {
         k++;
-        slider.value = (float)(k * 0.2);
+        slider.value = (float) (k * 0.2);
 
         if (k == 5)
         {
             if (gameObject.name == "Medis")
             {
                 ResourceManager.Instance.AddResource(ResourceEnum.Wood, 100);
-            } 
+            }
             else if (gameObject.name == "Akmuo")
             {
                 ResourceManager.Instance.AddResource(ResourceEnum.Stone, 50);
             }
+
             Destroy(gameObject);
         }
     }

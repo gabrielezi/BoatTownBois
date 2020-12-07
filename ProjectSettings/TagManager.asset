@@ -8,6 +8,8 @@ TagManager:
   - Coin
   - Wood
   - Player Character
+  - Ship
+  - Stone
   layers:
   - Default
   - TransparentFX

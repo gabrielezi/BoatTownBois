@@ -6,7 +6,7 @@ namespace Fight.Damage
     public class HealthBarManager : MonoBehaviour
     {
         private Slider _healthBar;
-        
+
         private void Start()
         {
             _healthBar = gameObject.transform.Find("Hp").Find("Slider").GetComponent<Slider>();

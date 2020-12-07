@@ -5,12 +5,9 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour
     {
-        [SerializeField]
-        private LayerMask layer;
-        [SerializeField]
-        private float attackRange = 0.5f;
-        [SerializeField]
-        private int attackDamage = 20;
+        [SerializeField] private LayerMask layer;
+        [SerializeField] private float attackRange = 0.5f;
+        [SerializeField] private int attackDamage = 20;
 
 
         private float _attackRate = 1f;
@@ -19,8 +16,7 @@ namespace Player
         private bool _attacking;
 
         private int _animatorAttackTrigger;
-        [SerializeField]
-        private Transform _attackArea;
+        [SerializeField] private Transform _attackArea;
 
         private void Start()
         {
@@ -44,7 +40,7 @@ namespace Player
             _animator.SetTrigger(_animatorAttackTrigger);
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackArea.position, attackRange, layer);
             SoundManager.Instance.PlaySound(hitEnemies.Length > 0 ? "Explosion" : "Punch Miss");
-            
+
             foreach (var hitEnemy in hitEnemies)
             {
                 hitEnemy.GetComponent<IDamageable>().TakeDamage(attackDamage);
