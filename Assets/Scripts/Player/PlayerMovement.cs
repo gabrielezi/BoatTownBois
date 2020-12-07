@@ -31,7 +31,10 @@ namespace Player
                 )
             {
                 _targetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-                _targetPosition += (Random.insideUnitSphere * 0.5f);
+                if (CharacterSelect.Instance.GetSelectedCharacterCount() > 1)
+                {
+                    _targetPosition += (Random.insideUnitSphere * 0.5f);
+                }
                 _targetPosition.z = transform.position.z;
 
                 var direction = _targetPosition - transform.position;

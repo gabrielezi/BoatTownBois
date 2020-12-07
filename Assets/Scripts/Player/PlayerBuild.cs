@@ -26,6 +26,7 @@ namespace Player
                 else
                 {
                     _buildingPosition = transform.position;
+                    _buildingPosition.y -= 0.01f;
                     SoundManager.Instance.PlaySound("Build");
                     ResourceManager.Instance.AddResource(ResourceEnum.Wood, -200);
                     ResourceManager.Instance.AddResource(ResourceEnum.Stone, -25);
@@ -46,6 +47,11 @@ namespace Player
                     _buildTimeRemaining = DefaultBuildTime;
                 }
             }
+        }
+
+        public float GetBuildTime()
+        {
+            return DefaultBuildTime;
         }
     }
 }

@@ -44,6 +44,7 @@ namespace Fight.Damage
         {
             _timer = 0f;
             _startPos = transform.position;
+            var waitForFixedUpdate = new WaitForFixedUpdate();
 
             while (_timer < timeToShake)
             {
@@ -51,7 +52,7 @@ namespace Fight.Damage
  
                 transform.position += (Random.insideUnitSphere * shakingIntensity);
 
-                yield return null;
+                yield return waitForFixedUpdate;
             }
             transform.position = _startPos;
         }
