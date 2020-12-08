@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3036533354392608927}
   - component: {fileID: 3036533354392608925}
   - component: {fileID: 3036533354392608924}
+  - component: {fileID: -2087729802011547153}
   m_Layer: 15
   m_Name: Bomb
   m_TagString: Untagged
@@ -141,16 +142,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2584333444102472279, guid: e410f1f470089354fa476ee742fdf484,
-          type: 3}
-        m_MethodName: PlaySound
-        m_Mode: 5
+      - m_Target: {fileID: -2087729802011547153}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Explosion
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   duration: 2
@@ -186,3 +186,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerName: Explode
   delay: 1
+--- !u!114 &-2087729802011547153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036533354392608897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d53bf454da44dc916637927d625548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectName: Explosion
