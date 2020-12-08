@@ -8,6 +8,7 @@ public class StartGame : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.PlayBackgroundSound("MainMenu");
         Button btn = gameObject.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
