@@ -23,8 +23,8 @@ public class ResourceManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         _resources = new Dictionary<ResourceEnum, int>();
-        _resources.Add(ResourceEnum.Wood, 0);
-        _resources.Add(ResourceEnum.Stone, 0);
+        _resources.Add(ResourceEnum.Wood, 1000);
+        _resources.Add(ResourceEnum.Stone, 1000);
         _resources.Add(ResourceEnum.Coin, 0);
     }
 
@@ -33,6 +33,7 @@ public class ResourceManager : MonoBehaviour
         _woodCountText = GameObject.Find("Wood_Count_Text").GetComponent<Text>();
         _stoneCountText = GameObject.Find("Stone_Count_Text").GetComponent<Text>();
         _coinCountText = GameObject.Find("Coin_Count_Text").GetComponent<Text>();
+        UpdateResourceDisplay();
     }
 
     public void AddResource(ResourceEnum resourceType, int amount)

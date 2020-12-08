@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5715734133751148388}
   - component: {fileID: 7401139922659624423}
+  - component: {fileID: 199135309932615723}
   m_Layer: 0
   m_Name: bigHouse
   m_TagString: Untagged
@@ -81,3 +82,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &199135309932615723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536962762557276515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e275c6014c80e54b965243f5c126b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Coin: {fileID: 3277474585021894761, guid: 9c6d41975adc84d42a8e07d01b7fc25b, type: 3}
