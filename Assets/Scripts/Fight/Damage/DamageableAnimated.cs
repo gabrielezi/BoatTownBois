@@ -1,5 +1,6 @@
 ﻿using Fight.Destroy;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Fight.Damage
 {
@@ -8,6 +9,7 @@ namespace Fight.Damage
         [SerializeField] private int health;
         [SerializeField] private string animatorHitTriggerName = "hit";
         [SerializeField] private string animatorIsDownName = "isDown";
+        [SerializeField] private UnityEvent onDown = new UnityEvent();
 
         private Animator _animator;
         private int _animatorHitTrigger;
@@ -40,6 +42,7 @@ namespace Fight.Damage
             {
                 _animator.SetBool(_animatorIsDown, true);
                 GetComponent<Collider2D>().enabled = false;
+                onDown?.Invoke();
                 _destroy.DestroyObject();
             }
         }

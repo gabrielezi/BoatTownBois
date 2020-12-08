@@ -26,7 +26,7 @@ TagManager:
   - Ship
   - Enemy
   - Collectable
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -64,6 +64,9 @@ TagManager:
     locked: 0
   - name: Loot
     uniqueID: 3411226503
+    locked: 0
+  - name: Weapon
+    uniqueID: 1196839497
     locked: 0
   - name: CharacterUI
     uniqueID: 3919279873
