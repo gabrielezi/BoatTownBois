@@ -79,19 +79,31 @@ namespace Assets.Scripts
 
         public void ActivateBuildUI(Func<Vector3> getPlayerPosition)
         {
-            print("Activate build ui!");
+            //print("Activate build ui!");
+            //_getPlayerPosition = getPlayerPosition;
+            //var objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+            //var buildUI = objects.Where(o => o.name == "BuildPickUI").ToList();
+            //buildUI.ForEach(b => b.SetActive(true));
+
             _getPlayerPosition = getPlayerPosition;
-            var objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-            var buildUI = objects.Where(o => o.name == "BuildPickUI").ToList();
-            buildUI.ForEach(b => b.SetActive(true));
+            if(BuildUI == null)
+            {
+                BuildUI = GameObject.Find("BuildPickUI");
+            }
+            BuildUI?.SetActive(true);
         }
 
         public void DisableBuildUI()
         {
-            print("Disable build ui!");
-            var objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-            var buildUI = objects.FirstOrDefault(o => o.name == "BuildPickUI");
-            buildUI.SetActive(false);
+            //print("Disable build ui!");
+            //var objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+            //var buildUI = objects.FirstOrDefault(o => o.name == "BuildPickUI");
+            //buildUI.SetActive(false);
+            if (BuildUI == null)
+            {
+                BuildUI = GameObject.Find("BuildPickUI");
+            }
+            BuildUI?.SetActive(false);
         }
 
         public void AttemptBuild(BuildingEnum building)

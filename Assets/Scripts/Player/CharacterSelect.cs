@@ -96,7 +96,7 @@ namespace Player
         }
 
         public GameObject GetFirstCharacter()
-        {
+         {
             return _selectedCharacters.OrderBy(c => c.Key.name).FirstOrDefault().Key;
         }
     }
