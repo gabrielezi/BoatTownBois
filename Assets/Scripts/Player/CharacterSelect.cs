@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Player
@@ -74,7 +75,6 @@ namespace Player
                     selectedCount++;
                 }
             }
-
             return selectedCount;
         }
 
@@ -93,6 +93,11 @@ namespace Player
         public void RemoveCharacter(GameObject character)
         {
             _selectedCharacters.Remove(character);
+        }
+
+        public GameObject GetFirstCharacter()
+         {
+            return _selectedCharacters.OrderBy(c => c.Key.name).FirstOrDefault().Key;
         }
     }
 }

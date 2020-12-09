@@ -65,5 +65,5 @@ public enum ResourceEnum
 {
     Wood,
     Stone,
-    Coin,
+    Coin
 }
