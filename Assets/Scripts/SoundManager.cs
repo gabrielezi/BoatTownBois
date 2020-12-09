@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public Sound[] sounds;
     public bool playSounds = true;
 
+    private string _backgroundSoundPlaying;
     private Dictionary<string, AudioSource> _audioSources;
     private Dictionary<string, float> _soundReplayDelays;
     private Dictionary<string, float> _soundLastPlayedTimers;
@@ -40,16 +42,30 @@ public class SoundManager : MonoBehaviour
             _soundReplayDelays.Add(sound.name, sound.replayDelay);
         }
     }
-
-    private void Start()
+    
+    private void OnEnable()
     {
-        PlayBackgroundSound("Theme");
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (_backgroundSoundPlaying == null)
+        {
+            PlayBackgroundSound("Theme");
+        }
+    }
+    
     public void PlayBackgroundSound(string soundName)
     {
+        if (_backgroundSoundPlaying == soundName)
+        {
+            return;
+        }
+        
         StopAllSounds();
         PlaySound(soundName);
+        _backgroundSoundPlaying = soundName;
     }
 
     public void StopAllSounds()

@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5efa22885a9708489f779949a54833f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camSpeed: 5
+  camSpeed: 7
   moveLeftAreaSize: 30
   moveRightAreaSize: 30
   moveUpAreaSize: 25
@@ -7000,7 +7000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd816e1aa0d48279deecb2ce057cae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 0}
+  map: {fileID: 1375327671}
 --- !u!1 &2029186243
 GameObject:
   m_ObjectHideFlags: 0

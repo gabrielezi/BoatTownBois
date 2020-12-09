@@ -21,12 +21,13 @@ namespace Fight.Destroy
 
         IEnumerator Fade(SpriteRenderer spriteRenderer)
         {
-            for (float ft = 1f; ft >= 0; ft -= 0.01f)
+            var waitForFixedUpdate = new WaitForFixedUpdate();
+            for (float ft = 1f; ft >= 0; ft -= 0.02f)
             {
                 Color color = spriteRenderer.color;
                 color.a = ft;
                 spriteRenderer.color = color;
-                yield return null;
+                yield return waitForFixedUpdate;
             }
 
             if (_eventDispatcher != null)

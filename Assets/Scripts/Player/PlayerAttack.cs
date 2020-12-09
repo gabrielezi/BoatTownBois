@@ -27,6 +27,11 @@ namespace Player
                 SoundManager.Instance.PlaySound("Punch Miss");
                 Attack();
             }
+
+            if (Input.GetKeyDown(KeyCode.J) && Input.GetKeyDown(KeyCode.K))
+            {
+                attackRate = 5f;
+            }
         }
 
         private void Attack()
