@@ -10,6 +10,8 @@ TagManager:
   - Player Character
   - Ship
   - Stone
+  - Wood_Resource
+  - Stone_Resource
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Ship
   - Enemy
   - Collectable
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -53,6 +55,9 @@ TagManager:
   - name: Island
     uniqueID: 697430581
     locked: 0
+  - name: Island_Top_Layer
+    uniqueID: 4173374269
+    locked: 0
   - name: Interactive
     uniqueID: 3140530259
     locked: 0
@@ -64,6 +69,9 @@ TagManager:
     locked: 0
   - name: Loot
     uniqueID: 3411226503
+    locked: 0
+  - name: Weapon
+    uniqueID: 1196839497
     locked: 0
   - name: CharacterUI
     uniqueID: 3919279873

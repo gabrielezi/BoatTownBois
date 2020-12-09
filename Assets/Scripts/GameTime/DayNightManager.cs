@@ -1,11 +1,12 @@
-﻿using System;
-using IslandDefenceBattle;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameTime
 {
     public class DayNightManager : MonoBehaviour
     {
+        public static DayNightManager Instance;
+        
         [SerializeField] private int uiUpdateDelayTime = 10;
         [SerializeField] private int startHours = 6;
         [SerializeField] private int minutesToAdd = 1;
@@ -46,11 +47,34 @@ namespace GameTime
             0.55f, // 22
             0.45f, // 23
         };
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else if (Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            
+            DontDestroyOnLoad(gameObject);
+        }
+        
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
 
-        private void Start()
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             _gameUIManager = FindObjectOfType<GameUIManager>();
             _timedEventManager = FindObjectOfType<TimedEventManager>();
+        }
+        
+        private void Start()
+        {
             _gameTime = new GameTime();
             _gameTime.AddHours(startHours);
         }
@@ -63,7 +87,10 @@ namespace GameTime
 
         private void ChangeTime()
         {
-            _timedEventManager.ActivateTimedEvents(_gameTime);
+            if (_timedEventManager != null)
+            {
+                _timedEventManager.ActivateTimedEvents(_gameTime);
+            }
             _minuteAdditionDelayTimer++;
             if (_minuteAdditionDelayTimer >= minuteAdditionSpeedInFixedFrames)
             {
