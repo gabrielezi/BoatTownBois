@@ -12,6 +12,7 @@ namespace Tutorial
 
         private void Start()
         {
+            SoundManager.Instance.PlayBackgroundSound("Theme");
             _tutorialSteps = gameObject.GetComponents<ITutorialStep>();
             foreach (var tutorialStep in _tutorialSteps)
             {
