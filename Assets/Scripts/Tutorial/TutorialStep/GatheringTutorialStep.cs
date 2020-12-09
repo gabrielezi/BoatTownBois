@@ -26,7 +26,7 @@ namespace Tutorial.TutorialStep
 
         private void OnGameObjectDestroyed(GameObject destroyedObject)
         {
-            _resourceGathered = destroyedObject.CompareTag("Stone");
+            _resourceGathered = destroyedObject.CompareTag("Stone_Resource");
         }
 
         public bool Process()

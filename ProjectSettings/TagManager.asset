@@ -10,6 +10,8 @@ TagManager:
   - Player Character
   - Ship
   - Stone
+  - Wood_Resource
+  - Stone_Resource
   layers:
   - Default
   - TransparentFX
@@ -52,6 +54,9 @@ TagManager:
     locked: 0
   - name: Island
     uniqueID: 697430581
+    locked: 0
+  - name: Island_Top_Layer
+    uniqueID: 4173374269
     locked: 0
   - name: Interactive
     uniqueID: 3140530259
