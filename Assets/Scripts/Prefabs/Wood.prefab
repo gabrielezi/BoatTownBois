@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7543954871966217839}
   - component: {fileID: 7543954871966217832}
   m_Layer: 10
-  m_Name: medis
+  m_Name: Wood
   m_TagString: Medis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1154437037
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 153ad2d0925edb548a8ef3256d83528c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 7728676258697873842}
   - component: {fileID: 8819269080197511152}
   m_Layer: 0
-  m_Name: Medis
-  m_TagString: Untagged
+  m_Name: Wood
+  m_TagString: Wood_Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

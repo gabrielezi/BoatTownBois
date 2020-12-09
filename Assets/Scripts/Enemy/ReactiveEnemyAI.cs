@@ -11,6 +11,7 @@ namespace Enemy
         [SerializeField] private int patrolRange = 100;
         [SerializeField] private int idleTime = 100;
         [SerializeField] private int attackDamage = 5;
+        [SerializeField] private float attackDistance = 0.75f;
 
         private bool _chaseTarget;
         private int _patrolCount;
@@ -72,7 +73,7 @@ namespace Enemy
             var distance = Vector2.Distance(position, targetPosition);
             _chaseTarget = distance < detectionRange;
 
-            if (distance < 0.75f)
+            if (distance < attackDistance)
             {
                 if (Time.time >= _nextAttackTime)
                 {
