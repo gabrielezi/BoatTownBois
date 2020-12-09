@@ -10,7 +10,7 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.B) && CharacterSelect.Instance.IsCharacterSelected(gameObject))
+            if (Input.GetKeyDown(KeyCode.B) && CharacterSelect.Instance.IsCharacterSelected(gameObject) && CharacterSelect.Instance.GetFirstCharacter() == gameObject)
             {
                 if (!_buildMenuActivated)
                 {
@@ -28,6 +28,7 @@ namespace Player
         private void OnDestroy()
         {
             BuildManager.Instance.DisableBuildUI();
+
         }
 
         public float GetBuildTime()

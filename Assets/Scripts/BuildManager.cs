@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Assets.Scripts.Building;
 
 namespace Assets.Scripts
 {
@@ -81,13 +82,13 @@ namespace Assets.Scripts
             print("Activate build ui!");
             _getPlayerPosition = getPlayerPosition;
             var objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-            var buildUI = objects.FirstOrDefault(o => o.name == "BuildPickUI");
-            buildUI.SetActive(true);
+            var buildUI = objects.Where(o => o.name == "BuildPickUI").ToList();
+            buildUI.ForEach(b => b.SetActive(true));
         }
 
         public void DisableBuildUI()
         {
-            print("Disable build ui!"); 
+            print("Disable build ui!");
             var objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
             var buildUI = objects.FirstOrDefault(o => o.name == "BuildPickUI");
             buildUI.SetActive(false);
@@ -95,19 +96,22 @@ namespace Assets.Scripts
 
         public void AttemptBuild(BuildingEnum building)
         {
-            var currentWood = ResourceManager.Instance.GetResource(ResourceEnum.Wood);
-            var currentStone = ResourceManager.Instance.GetResource(ResourceEnum.Stone);
-            var currentCoin = ResourceManager.Instance.GetResource(ResourceEnum.Coin);
-            if (_resourcesNeeded[building][ResourceEnum.Wood] <= currentWood &&
-                _resourcesNeeded[building][ResourceEnum.Stone] <= currentStone)
+            if (!_isBuilding)
             {
-                _buildingPosition = _getPlayerPosition();
-                _buildingPosition.y -= 0.01f;
-                SoundManager.Instance.PlaySound("Build");
-                ResourceManager.Instance.AddResource(ResourceEnum.Wood, -_resourcesNeeded[building][ResourceEnum.Wood]);
-                ResourceManager.Instance.AddResource(ResourceEnum.Stone, -_resourcesNeeded[building][ResourceEnum.Stone]);
-                _buildingToBeBuilt = (GameObject) Resources.Load("Prefabs/" + building.ToString(), typeof(GameObject));
-                _isBuilding = true;
+                var currentWood = ResourceManager.Instance.GetResource(ResourceEnum.Wood);
+                var currentStone = ResourceManager.Instance.GetResource(ResourceEnum.Stone);
+                var currentCoin = ResourceManager.Instance.GetResource(ResourceEnum.Coin);
+                if (_resourcesNeeded[building][ResourceEnum.Wood] <= currentWood &&
+                    _resourcesNeeded[building][ResourceEnum.Stone] <= currentStone)
+                {
+                    _buildingPosition = _getPlayerPosition();
+                    _buildingPosition.y -= 0.01f;
+                    SoundManager.Instance.PlaySound("Build");
+                    ResourceManager.Instance.AddResource(ResourceEnum.Wood, -_resourcesNeeded[building][ResourceEnum.Wood]);
+                    ResourceManager.Instance.AddResource(ResourceEnum.Stone, -_resourcesNeeded[building][ResourceEnum.Stone]);
+                    _buildingToBeBuilt = (GameObject)Resources.Load("Prefabs/" + building.ToString(), typeof(GameObject));
+                    _isBuilding = true;
+                }
             }
         }
 
