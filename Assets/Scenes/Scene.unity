@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minZoom: 2
-  maxZoom: 8
+  maxZoom: 5.3
   zoomSpeed: 8
   zoomSensitivity: 5
 --- !u!114 &239577413
@@ -7143,6 +7143,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 828676726}
     m_Modifications:
+    - target: {fileID: 4590840098357228669, guid: 5f38d47069e8ae344949a5b30b5d7ed0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4590840098533935884, guid: 5f38d47069e8ae344949a5b30b5d7ed0,
         type: 3}
       propertyPath: m_Name
@@ -7252,6 +7257,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590840099106462402, guid: 5f38d47069e8ae344949a5b30b5d7ed0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590840099179391868, guid: 5f38d47069e8ae344949a5b30b5d7ed0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590840100078196703, guid: 5f38d47069e8ae344949a5b30b5d7ed0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f38d47069e8ae344949a5b30b5d7ed0, type: 3}
