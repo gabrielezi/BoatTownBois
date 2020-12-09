@@ -24,8 +24,8 @@ public class ResourceManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         _resources = new Dictionary<ResourceEnum, int>();
-        _resources.Add(ResourceEnum.Wood, 1000);
-        _resources.Add(ResourceEnum.Stone, 1000);
+        _resources.Add(ResourceEnum.Wood, 0);
+        _resources.Add(ResourceEnum.Stone, 0);
         _resources.Add(ResourceEnum.Coin, 0);
     }
     
