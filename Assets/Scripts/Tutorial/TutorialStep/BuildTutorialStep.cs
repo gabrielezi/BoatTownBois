@@ -9,6 +9,7 @@ namespace Tutorial.TutorialStep
         private bool _lockedFunctionality;
         private bool _building;
         private float _buildTimer;
+        private int _currentStone;
         private TextTransitionAnimation _textTransitionAnimation;
 
         private void Start()
@@ -26,12 +27,12 @@ namespace Tutorial.TutorialStep
             if (!_textShown)
             {
                 _textTransitionAnimation.Animate(
-                    "Now you have enough resources to build. Move to a position you want and press B key to build."
+                    "Now you have enough resources to build. Move to a position you want and press B key to open build menu."
                 );
                 _textShown = true;
+                _currentStone = ResourceManager.Instance.GetResource(ResourceEnum.Stone);
             }
-
-            if (!_building && Input.GetKeyDown(KeyCode.B))
+            else if (!_building && _currentStone > ResourceManager.Instance.GetResource(ResourceEnum.Stone))
             {
                 _building = true;
                 _buildTimer = Time.time + CharacterSelect.Instance.GetOneSelectedCharacter().GetComponent<PlayerBuild>().GetBuildTime();

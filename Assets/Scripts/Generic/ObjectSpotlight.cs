@@ -38,12 +38,13 @@ namespace Generic
                 yield return null;
             }
 
-            mainLight.enabled = false;
+            var originalIntensity = mainLight.intensity;
+            mainLight.intensity = originalIntensity / 4;
             _spotlightLight.enabled = true;
 
             yield return new WaitForSeconds(duration);
 
-            mainLight.enabled = true;
+            mainLight.intensity = originalIntensity;
             _spotlightLight.enabled = false;
 
             while (_mainCamera.transform.position != startPosition)
